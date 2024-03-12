@@ -23,15 +23,15 @@ const Index = () => {
   const total = useAppSelector((state) => state.total.total)
   const dispatch = useAppDispatch()
 
-  useEffect(() => {
-    fetchExpense()
-  }, [])
-
   const fetchExpense = async () => {
     const result = await getExpense()
     dispatch(setExpenses(result.data))
     dispatch(setTotal(result.data))
   }
+
+  useEffect(() => {
+    fetchExpense()
+  }, [fetchExpense])
 
   return (
     <main className="flex flex-col items-center py-20 px-48">

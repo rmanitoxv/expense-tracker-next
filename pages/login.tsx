@@ -9,7 +9,7 @@ const Login = () => {
 
   useEffect(() => {
     if (status === "authenticated") router.push("/")
-  }, [status])
+  }, [status, router])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()

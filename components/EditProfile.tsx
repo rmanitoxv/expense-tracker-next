@@ -33,17 +33,17 @@ const EditProfile = ({
       EditProfileRef.current.focus()
   }, [isEditProfileOpen])
 
-  useEffect(() => {
-    fetchUser()
-  }, [])
-
   const fetchUser = () => {
     getUser().then((res: AxiosResponse<any, any>) => {
-      updateProfile({ fname: res.data.fname })
-      updateProfile({ lname: res.data.lname })
-      updateProfile({ email: res.data.email })
+      updateProfile({ fname: res?.data?.fname })
+      updateProfile({ lname: res?.data?.lname })
+      updateProfile({ email: res?.data?.email })
     })
   }
+
+  useEffect(() => {
+    fetchUser()
+  }, [fetchUser])
 
   const updateProfile = (newState: object) => {
     setProfile((prevState) => ({

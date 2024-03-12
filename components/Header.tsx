@@ -20,7 +20,7 @@ const Header = () => {
   const DropDownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    getUser().then((res) => setName(res.data.fname + " " + res.data.lname))
+    getUser().then((res) => setName(res.data?.fname + " " + res.data?.lname))
   }, [session])
   return (
     <div className="flex items-center justify-between text-xl py-8 px-48 bg-slate-900">

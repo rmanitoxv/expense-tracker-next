@@ -3,14 +3,14 @@ import { registerHandler } from "./utils/apiHandler"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 
-const register = () => {
+const Register = () => {
   const router = useRouter()
   const { status } = useSession()
   const [error, setError] = useState("")
 
   useEffect(() => {
     if (status === "authenticated") router.push("/")
-  }, [status])
+  }, [status, router])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -23,11 +23,11 @@ const register = () => {
   }
   return (
     <div className="flex-grow flex flex-col items-center justify-center gap-8">
-      <h1 className="text-3xl font-bold">REGISTER</h1>
       <form
-        className="px-10 flex flex-col items-center gap-4 w-1/3"
+        className="px-10 flex flex-col items-center gap-4 w-1/3 bg-slate-900 py-10 rounded-xl"
         onSubmit={handleSubmit}
       >
+        <h1 className="text-3xl font-bold">REGISTER</h1>
         <div className="w-full flex gap-2 items-center">
           <div className="w-1/4">Email:</div>
           <input
@@ -89,4 +89,4 @@ const register = () => {
   )
 }
 
-export default register
+export default Register
