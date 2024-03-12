@@ -1,5 +1,5 @@
 import React, { FormEvent, useEffect } from "react"
-import { loginHandler } from "./utils/apiHandler"
+import { loginHandler } from "@/utils/apiHandler"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 

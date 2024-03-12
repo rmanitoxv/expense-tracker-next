@@ -1,4 +1,4 @@
-import { editUser } from "@/pages/utils/apiHandler"
+import { editUser } from "@/utils/apiHandler"
 import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react"
 
 interface ChangePasswordProps {

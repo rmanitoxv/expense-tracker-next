@@ -1,4 +1,4 @@
-import { createExpense } from "@/pages/utils/apiHandler"
+import { createExpense } from "@/utils/apiHandler"
 import React, { Dispatch, FormEvent, useEffect, useRef } from "react"
 
 interface loginModalProps {

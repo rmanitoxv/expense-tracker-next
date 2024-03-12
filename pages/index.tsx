@@ -2,10 +2,11 @@ import Daily from "@/components/Daily"
 import NewExpense from "@/components/NewExpense"
 import { useCallback, useEffect, useState } from "react"
 import { FaPlus } from "react-icons/fa"
-import { getExpense } from "./utils/apiHandler"
-import { useAppDispatch, useAppSelector } from "./utils/hooks"
-import { setExpenses } from "./utils/reducers/expensesReducer"
-import { setTotal } from "./utils/reducers/totalReducer"
+import { getExpense } from "@/utils/apiHandler"
+import { useAppDispatch, useAppSelector } from "@/utils/hooks"
+import { setExpenses } from "@/utils/reducers/expensesReducer"
+import { setTotal } from "@/utils/reducers/totalReducer"
+
 
 interface expenseObject {
   amount: number
@@ -27,7 +28,7 @@ const Index = () => {
     const result = await getExpense()
     dispatch(setExpenses(result.data))
     dispatch(setTotal(result.data))
-  }, [])
+  }, [dispatch])
 
   useEffect(() => {
     fetchExpense()

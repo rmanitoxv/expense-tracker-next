@@ -1,6 +1,6 @@
-import { deleteExpense, getExpense } from "@/pages/utils/apiHandler"
-import { setExpenses } from "@/pages/utils/reducers/expensesReducer"
-import { setTotal } from "@/pages/utils/reducers/totalReducer"
+import { deleteExpense, getExpense } from "@/utils/apiHandler"
+import { setExpenses } from "@/utils/reducers/expensesReducer"
+import { setTotal } from "@/utils/reducers/totalReducer"
 import React, { Dispatch, FormEvent, useEffect, useRef } from "react"
 import { useDispatch } from "react-redux"
 

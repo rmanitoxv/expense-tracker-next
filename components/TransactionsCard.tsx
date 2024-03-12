@@ -1,4 +1,4 @@
-import { editExpense } from "@/pages/utils/apiHandler"
+import { editExpense } from "@/utils/apiHandler"
 import { FormEvent, useRef, useState } from "react"
 import { IoMdCheckmark } from "react-icons/io"
 import { MdDelete, MdEdit } from "react-icons/md"
@@ -115,7 +115,11 @@ const TransactionsCard = ({ expense }: expenseInterface) => {
               isDeleteModalOpen ? "z-20" : "-z-10 opacity-0"
             }`}
           >
-            <DeleteModal id={expense.id} isDeleteModalOpen={isDeleteModalOpen} setIsDeleteModalOpen={setIsDeleteModalOpen} />
+            <DeleteModal
+              id={expense.id}
+              isDeleteModalOpen={isDeleteModalOpen}
+              setIsDeleteModalOpen={setIsDeleteModalOpen}
+            />
           </div>
           <div className="relative flex items-center py-5 border-b border-slate-700 last:border-b-0">
             <div

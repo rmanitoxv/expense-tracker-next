@@ -5,7 +5,7 @@ import { SessionProvider, useSession } from "next-auth/react"
 import type { AppProps } from "next/app"
 import { ReactNode } from "react"
 import { Provider } from "react-redux"
-import store from "./utils/store"
+import store from "@/utils/store"
 interface CustomAppProps extends AppProps {
   Component: NextComponentType & {
     auth?: boolean

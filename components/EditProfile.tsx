@@ -1,4 +1,4 @@
-import { editUser, getUser } from "@/pages/utils/apiHandler"
+import { editUser, getUser } from "@/utils/apiHandler"
 import { AxiosResponse } from "axios"
 import { useSession } from "next-auth/react"
 import React, {

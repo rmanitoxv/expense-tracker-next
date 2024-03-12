@@ -1,7 +1,7 @@
 import React, { FormEvent, useEffect, useState } from "react"
-import { registerHandler } from "./utils/apiHandler"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
+import { registerHandler } from "@/utils/apiHandler"
 
 const Register = () => {
   const router = useRouter()

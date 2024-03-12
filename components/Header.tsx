@@ -3,8 +3,8 @@ import Link from "next/link"
 import React, { useEffect, useRef, useState } from "react"
 import { HiDotsHorizontal } from "react-icons/hi"
 import EditProfile from "./EditProfile"
-import { getUser } from "@/pages/utils/apiHandler"
 import ChangePassword from "./ChangePassword"
+import { getUser } from "@/utils/apiHandler"
 
 interface ExtendedUser {
   fname: string
