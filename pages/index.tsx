@@ -1,6 +1,6 @@
 import Daily from "@/components/Daily"
 import NewExpense from "@/components/NewExpense"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import { FaPlus } from "react-icons/fa"
 import { getExpense } from "./utils/apiHandler"
 import { useAppDispatch, useAppSelector } from "./utils/hooks"
@@ -23,11 +23,11 @@ const Index = () => {
   const total = useAppSelector((state) => state.total.total)
   const dispatch = useAppDispatch()
 
-  const fetchExpense = async () => {
+  const fetchExpense = useCallback(async () => {
     const result = await getExpense()
     dispatch(setExpenses(result.data))
     dispatch(setTotal(result.data))
-  }
+  }, [])
 
   useEffect(() => {
     fetchExpense()

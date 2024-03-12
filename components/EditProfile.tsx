@@ -1,7 +1,14 @@
 import { editUser, getUser } from "@/pages/utils/apiHandler"
 import { AxiosResponse } from "axios"
 import { useSession } from "next-auth/react"
-import React, { Dispatch, FormEvent, useEffect, useRef, useState } from "react"
+import React, {
+  Dispatch,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
 
 interface EditProfileProps {
   isEditProfileOpen: boolean
@@ -33,13 +40,13 @@ const EditProfile = ({
       EditProfileRef.current.focus()
   }, [isEditProfileOpen])
 
-  const fetchUser = () => {
+  const fetchUser = useCallback(() => {
     getUser().then((res: AxiosResponse<any, any>) => {
       updateProfile({ fname: res?.data?.fname })
       updateProfile({ lname: res?.data?.lname })
       updateProfile({ email: res?.data?.email })
     })
-  }
+  }, [])
 
   useEffect(() => {
     fetchUser()
