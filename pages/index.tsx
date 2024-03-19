@@ -1,22 +1,11 @@
-import Daily from "@/components/Daily"
 import NewExpense from "@/components/NewExpense"
-import { useCallback, useEffect, useState } from "react"
+import React, { Suspense, useCallback, useEffect, useState } from "react"
+const Daily = React.lazy(() => import("@/components/Daily"))
 import { FaPlus } from "react-icons/fa"
 import { getExpense } from "@/utils/apiHandler"
 import { useAppDispatch, useAppSelector } from "@/utils/hooks"
 import { setExpenses } from "@/utils/reducers/expensesReducer"
 import { setTotal } from "@/utils/reducers/totalReducer"
-
-
-interface expenseObject {
-  amount: number
-  createdAt: string
-  description: string
-  id: string
-  title: string
-  updatededAt: string
-  userId: string
-}
 
 const Index = () => {
   const [isNewExpenseOpen, setIsNewExpenseOpen] = useState(false)
@@ -60,9 +49,11 @@ const Index = () => {
         </button>
       </div>
       <div className="mt-20 flex flex-col items-start w-full gap-10 ">
-        {Object.entries(expenses).map(([date, objects]) => (
-          <Daily date={date} objects={objects} key={date} />
-        ))}
+        <Suspense fallback={<div>Loading...</div>}>
+          {Object.entries(expenses).map(([date, objects]) => (
+            <Daily date={date} objects={objects} key={date} />
+          ))}
+        </Suspense>
       </div>
     </main>
   )
